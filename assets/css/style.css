@@ -1,0 +1,69 @@
+#header {
+    padding: 3%;
+}
+
+header {
+  position: absolute;
+  background-image: -webkit-linear-gradient(left, #4c6ead, #592dc0);
+  top: 0px;
+  left: 0px;
+  padding: 0%;
+  width: 100%;
+}
+
+h1 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-left: 50%;
+    color: white
+}
+
+#search {
+    width: 120%;
+}
+
+#button {
+    margin-top: 5%;
+    width: 120%;
+    color: white;
+    background-color: #3f6fc9;
+}
+
+#button:hover {
+    color: black;
+    background-color: #114fc2;
+}
+
+form {
+    position: absolute;
+    padding: 0% 5% 2% 0.8%;
+    /* border-style: solid; */
+}
+
+h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+aside {
+    position: absolute;
+    margin-top: 15%;
+    padding: 18% 13.7% 10% 13%;
+    /* border-style: solid; */
+}
+
+main {
+    float: right;
+    padding: 21.6% 17.4% 22% 55%;
+    /* border-style: solid; */
+}
+
+footer {font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    margin-top: 40%;
+}
+
+
