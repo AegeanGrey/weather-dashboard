@@ -66,7 +66,7 @@ function cityWeatherData(data) {
   var city = data.name;
   var humid = data.main.humidity;
   var wind = data.wind.speed;
-  var icon = data.main.feels_like;
+  var icon = data.weather[0].icon;
 
   // variables that store the searched cities longitude and latitude for weekly weather data API call
   var lon = data.coord.lon;
@@ -77,12 +77,10 @@ function cityWeatherData(data) {
 
   // Converts temperature from Kelvin to Fahrenheit while rounding up
   var temp = Math.floor(((data.main.temp - 273.15) * 1.8) + 32);
-
-  console.log(icon);
   
   // HTML that will pass in the stored data we formatted from the API call
   var currentWeather = `
-    <h1 id="city">${city}, ${date.toDateString()}</h1>
+    <h1 id="city">${city}, ${date.toDateString()} <img src="http://openweathermap.org/img/wn/${icon}.png"/></h1>
     <p>Temp: ${temp}°F</p>
     <p>Wind: ${wind} MPH</p>
     <p>Humidity: ${humid}%</p>`;
