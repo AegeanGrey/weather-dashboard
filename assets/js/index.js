@@ -1,5 +1,6 @@
 var btn = document.querySelector('#city-search');
 var search = document.querySelector('#search');
+var section = document.querySelector('#result');
 
 var APIKey = "410c0575ed08c60b522482fb4842a2a0";
 
@@ -55,6 +56,9 @@ var getCityWeather = function (city) {
     .then(function(data) {
       cityWeatherData(data);
     })
+    .catch(function(error) {
+      console.log('Error: ' + error);
+    })
 }
 
 // Contains weather data from API call and stores them within variables
@@ -66,7 +70,7 @@ function cityWeatherData(data) {
   var humid = data.main.humidity;
   var wind = data.wind.speed;
   var date = data.dt;
-
+  
   console.log(city);
   console.log(lon);
   console.log(lat);
@@ -74,6 +78,16 @@ function cityWeatherData(data) {
   console.log(humid);
   console.log(wind);
   console.log(date);
+  
+  var currentWeather = `
+    <h1 id="city">${city} (${date})</h1>
+    <p>Temp: ${temp}</p>
+    <p>Wind: ${wind}</p>
+    <p>Humidity: ${humid}</p>`;
+
+  if (city, date, temp, wind, humid) {
+    return section.innerHTML = currentWeather;
+  }
 }
 
 // When someone clicks the search button it will call the ping function
