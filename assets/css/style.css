@@ -59,18 +59,19 @@ input {
 
 aside {
     float: left;
-    margin-top: 14.2%;
-    height: 300px;
+    margin-top: 11%;
+    height: 400px;
     width: 343px;
     /* border-style: solid; */
 }
 
 section {
+    position: relative;
     float: right;
     height: 300px;
-    width: 880px;
-    padding: 0% 0% 0% 0%;
-    /* border-style: solid; */
+    width: 75%;
+    padding: 0% 0% 0% 2%;
+    border-style: solid;
 }
 
 #city {
