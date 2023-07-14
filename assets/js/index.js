@@ -1,6 +1,7 @@
 var btn = document.querySelector('#city-search');
 var search = document.querySelector('#search');
 var section = document.querySelector('#result');
+var card = document.querySelector('#card');
 
 var APIKey = "410c0575ed08c60b522482fb4842a2a0";
 
@@ -125,7 +126,13 @@ var getWeeklyWeather = function (lat, lon) {
 
 // Contains weekly weather data from weekApiUrl
 function weeklyWeatherData(data) {
-  console.log(data)
+
+return `<div>
+        <h2>${dt.toDateString()}</h2>
+        <p>Temp: </p>
+        <p>Wind: </p>
+        <p>Humidity: </p>
+    </div>`
 }
 
 // When someone clicks the search button it will call the ping function

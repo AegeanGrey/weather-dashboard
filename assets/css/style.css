@@ -1,4 +1,4 @@
-#header {
+nav {
     padding: 3%;
 }
 
@@ -65,13 +65,22 @@ aside {
     /* border-style: solid; */
 }
 
+#result {
+    border-style: solid;
+    padding: 0% 0% 0% 2%;
+}
+
 section {
     position: relative;
     float: right;
     height: 300px;
     width: 75%;
-    padding: 0% 0% 0% 2%;
+}
+
+div {
     border-style: solid;
+    padding: 0% 6% 2% 2%;
+    display: inline-block;
 }
 
 #city {
@@ -86,5 +95,5 @@ p {
 
 footer {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin-top: 40%;
+    margin-top: 35%;
 }
