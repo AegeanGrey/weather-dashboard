@@ -3,8 +3,6 @@ var search = document.querySelector('#search');
 
 var APIKey = "410c0575ed08c60b522482fb4842a2a0";
 
-var city;
-
 // Function that prevents the website from refreshing while taking in user searched city
 var ping = function (event) {
     
@@ -13,9 +11,6 @@ var ping = function (event) {
     
     // Stores the user searched city from the DOM into citySearch
     var citySearch = search.value.trim();
-
-    // Shows the user search 
-    console.log(citySearch);
 
     // if there's data within citySearch
     if (citySearch) {
@@ -45,13 +40,40 @@ var getCityWeather = function (city) {
         if (response.ok) {
 
           // It will console log the API data in JSON to the console  
-          console.log(response.json())
+          // console.log(response.json());
+
+          // Returns json formatted data
+          return response.json();
 
          // Otherwise it will display an alert prompt to the webpage with an error message regarding the status
         } else {
           alert('Error: ' + response.statusText);
         }
     })
+
+    // Passes json formatted data into cityWeatherData
+    .then(function(data) {
+      cityWeatherData(data);
+    })
+}
+
+// Contains weather data from API call and stores them within variables
+function cityWeatherData(data) {
+  var city = data.name;
+  var lon = data.coord.lon;
+  var lat = data.coord.lat;
+  var temp = data.main.temp;
+  var humid = data.main.humidity;
+  var wind = data.wind.speed;
+  var date = data.dt;
+
+  console.log(city);
+  console.log(lon);
+  console.log(lat);
+  console.log(temp);
+  console.log(humid);
+  console.log(wind);
+  console.log(date);
 }
 
 // When someone clicks the search button it will call the ping function
