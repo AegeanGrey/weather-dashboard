@@ -13,6 +13,9 @@ header {
 
 h1 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#title {
     padding-left: 50%;
     color: white
 }
@@ -35,9 +38,13 @@ button:hover {
     background-color: #114fc2;
 }
 
+main {
+    contain: content;
+}
+
 form {
     position: absolute;
-    padding: 0% 5% 2% 0.8%;
+    padding: 0% 5% 2% 1%;
     /* border-style: solid; */
 }
 
@@ -51,21 +58,32 @@ input {
 }
 
 aside {
-    position: absolute;
-    margin-top: 15%;
-    padding: 18% 13.7% 10% 13%;
+    float: left;
+    margin-top: 14.2%;
+    height: 300px;
+    width: 343px;
     /* border-style: solid; */
 }
 
-main {
+section {
     float: right;
-    padding: 21.6% 17.4% 22% 55%;
+    height: 300px;
+    width: 880px;
+    padding: 0% 0% 0% 0%;
     /* border-style: solid; */
 }
 
-footer {font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+#city {
+    font-size: xx-large;
+}
 
+p {
+    padding: 1px;
+    font-size: x-large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+footer {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-top: 40%;
 }
-
-
