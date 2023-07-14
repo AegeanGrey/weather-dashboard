@@ -1,4 +1,5 @@
 # weather-dashboard
+![image](https://github.com/AegeanGrey/weather-dashboard/assets/125229624/0315bac4-1112-40b0-a90f-d238f378ed3d)
 
 ## Description
 The Weather Dashboard Application has helped given me a strong understanding of how to implement 3rd-Party API's into my own webpages and utilizing them the best of my capabilities!
