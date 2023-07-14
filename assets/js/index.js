@@ -34,8 +34,8 @@ var getCityWeather = function (city) {
   // Fetch request is sent for the apiUrl with user data
   fetch(apiUrl)
 
-    // After the fetch request is made it will then 
-    .then(function (response) {
+    // The data from the fetch request is then passed into response
+    .then(function(response) {
 
         // If the response for the fetch request is true or in this case 'ok'
         if (response.ok) {
@@ -64,30 +64,70 @@ var getCityWeather = function (city) {
 // Contains weather data from API call and stores them within variables
 function cityWeatherData(data) {
   var city = data.name;
-  var lon = data.coord.lon;
-  var lat = data.coord.lat;
-  var temp = data.main.temp;
   var humid = data.main.humidity;
   var wind = data.wind.speed;
-  var date = data.dt;
-  
-  console.log(city);
-  console.log(lon);
-  console.log(lat);
-  console.log(temp);
-  console.log(humid);
-  console.log(wind);
-  console.log(date);
-  
-  var currentWeather = `
-    <h1 id="city">${city} (${date})</h1>
-    <p>Temp: ${temp}</p>
-    <p>Wind: ${wind}</p>
-    <p>Humidity: ${humid}</p>`;
+  var icon = data.main.feels_like;
 
+  // variables that store the searched cities longitude and latitude for weekly weather data API call
+  var lon = data.coord.lon;
+  var lat = data.coord.lat;
+  
+  // Converts daily time (dt) from milliseconds to be utilized as the current day, month and year
+  var date = new Date(data.dt * 1000);
+
+  // Converts temperature from Kelvin to Fahrenheit while rounding up
+  var temp = Math.floor(((data.main.temp - 273.15) * 1.8) + 32);
+
+  console.log(icon);
+  
+  // HTML that will pass in the stored data we formatted from the API call
+  var currentWeather = `
+    <h1 id="city">${city}, ${date.toDateString()}</h1>
+    <p>Temp: ${temp}°F</p>
+    <p>Wind: ${wind} MPH</p>
+    <p>Humidity: ${humid}%</p>`;
+
+  // If there is data within all these variables to pass then it will return the HTML from the currentWeather variable while calling getWeeklyWeather w/ lat and lon as parameters
   if (city, date, temp, wind, humid) {
+    getWeeklyWeather(lat, lon);
     return section.innerHTML = currentWeather;
   }
+}
+
+// Function that will retrieve weekly weather data by taking in lat and lon variables
+var getWeeklyWeather = function (lat, lon) {
+
+  // API call that will use lat and lon w/ the API Key
+  var weekApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+
+  // Fetch request is made with the weekApiUrl
+  fetch(weekApiUrl)
+
+  // Ferch request data from weekApiUrl is passed into response
+  .then(function(response) {
+
+    // If the response is valid then it will return the data in json format
+    if (response.ok) {
+        return response.json();
+
+    // Otherwise it will alert the webpage with a prompt and an error message
+    } else {
+        alert('Error: ' + response.statusText);
+    }
+  })
+
+  // JSON data is then passed into data and a call is made to the weeklyWeatherData function
+  .then(function(data) {
+    weeklyWeatherData(data)
+  })
+  .catch(function(error) {
+    console.log('Error: ' + error)
+  })
+}
+
+// Contains weekly weather data from weekApiUrl
+function weeklyWeatherData(data) {
+  console.log(data)
 }
 
 // When someone clicks the search button it will call the ping function
