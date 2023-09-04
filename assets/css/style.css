@@ -43,6 +43,7 @@ main {
 }
 
 form {
+    contain: content;
     position: absolute;
     padding: 0% 5% 2% 1%;
     /* border-style: solid; */
@@ -68,6 +69,7 @@ aside {
 #result {
     border-style: solid;
     padding: 0% 0% 0% 2%;
+    border-radius: 10px;
 }
 
 section {
@@ -77,7 +79,7 @@ section {
     width: 75%;
 }
 
-div {
+#cards {
     border-style: solid;
     padding: 0% 6% 2% 2%;
     display: inline-block;
@@ -95,5 +97,5 @@ p {
 
 footer {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin-top: 35%;
+    margin-top: 2.5%;
 }

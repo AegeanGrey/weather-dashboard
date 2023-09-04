@@ -1,12 +1,12 @@
 var btn = document.querySelector('#city-search');
 var search = document.querySelector('#search');
-var section = document.querySelector('#result');
+var section = document.querySelector('#results');
 var card = document.querySelector('#card');
 
 var APIKey = "410c0575ed08c60b522482fb4842a2a0";
 
 // Function that prevents the website from refreshing while taking in user searched city
-var ping = function (event) {
+var ping = function(event) {
     
     // Prevents the webpage from refreshing each time the search button is clicked
     event.preventDefault();
@@ -27,7 +27,7 @@ var ping = function (event) {
 }
 
 // Function that will pull in weather data based on the user searched city 
-var getCityWeather = function (city) {
+var getCityWeather = function(city) {
 
   // Plugs the user searched city and API Key into url for user requested
   var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
@@ -81,20 +81,22 @@ function cityWeatherData(data) {
   
   // HTML that will pass in the stored data we formatted from the API call
   var currentWeather = `
+    <div id="result">
     <h1 id="city">${city}, ${date.toDateString()} <img src="http://openweathermap.org/img/wn/${icon}.png"/></h1>
     <p>Temp: ${temp}°F</p>
     <p>Wind: ${wind} MPH</p>
-    <p>Humidity: ${humid}%</p>`;
+    <p>Humidity: ${humid}%</p>
+    </div>`;
 
   // If there is data within all these variables to pass then it will return the HTML from the currentWeather variable while calling getWeeklyWeather w/ lat and lon as parameters
-  if (city, date, temp, wind, humid) {
+  if (city) {
     getWeeklyWeather(lat, lon);
     return section.innerHTML = currentWeather;
   }
 }
 
 // Function that will retrieve weekly weather data by taking in lat and lon variables
-var getWeeklyWeather = function (lat, lon) {
+var getWeeklyWeather = function(lat, lon) {
 
   // API call that will use lat and lon w/ the API Key
   var weekApiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
@@ -127,8 +129,10 @@ var getWeeklyWeather = function (lat, lon) {
 // Contains weekly weather data from weekApiUrl
 function weeklyWeatherData(data) {
 
-return `<div>
-        <h2>${dt.toDateString()}</h2>
+var date = new Date(data.dt * 1000);
+
+return `<div id="cards">
+        <h2>${date.toDateString()}</h2>
         <p>Temp: </p>
         <p>Wind: </p>
         <p>Humidity: </p>
