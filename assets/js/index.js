@@ -80,8 +80,7 @@ function cityWeatherData(data) {
   var temp = Math.floor(((data.main.temp - 273.15) * 1.8) + 32);
   
   // HTML that will pass in the stored data we formatted from the API call
-  var currentWeather = `
-    <div id="result">
+  var currentWeather = `<div id="result">
     <h1 id="city">${city}, ${date.toDateString()} <img src="http://openweathermap.org/img/wn/${icon}.png"/></h1>
     <p>Temp: ${temp}°F</p>
     <p>Wind: ${wind} MPH</p>
